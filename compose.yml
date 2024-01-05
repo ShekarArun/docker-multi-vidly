@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  web:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    environment:
+      DB_URL: mongodb://db/vidly
+  api:
+    build: ./backend
+    ports:
+      - 3001:3001
+  db:
+    # Pull image from dockerhub
+    image: mongo:4.0-xenial
+    ports:
+      - 27017:27017
+    volumes:
+      - docker-vidly-multi:/data/db
+
+volumes:
+  docker-vidly-multi:
