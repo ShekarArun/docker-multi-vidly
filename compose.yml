@@ -11,6 +11,7 @@ services:
     image: docker-multi-vidly-web
     environment:
       DB_URL: mongodb://db/vidly
+    command: npm test
   api:
     build: ./backend
     ports:
