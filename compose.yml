@@ -13,6 +13,7 @@ services:
       - 3001:3001
     volumes:
       - ./backend:/app
+    command: ./docker-entrypoint.sh
   db:
     # Pull image from dockerhub
     image: mongo:4.0-xenial
