@@ -11,6 +11,8 @@ services:
     build: ./backend
     ports:
       - 3001:3001
+    volumes:
+      - ./backend:/app
   db:
     # Pull image from dockerhub
     image: mongo:4.0-xenial
