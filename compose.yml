@@ -5,12 +5,18 @@ services:
     build: ./frontend
     ports:
       - 3000:3000
+    # environment:
+    #   DB_URL: mongodb://db/vidly
+  web-tests:
+    image: docker-multi-vidly-web
     environment:
       DB_URL: mongodb://db/vidly
   api:
     build: ./backend
     ports:
       - 3001:3001
+    environment:
+      DB_URL: mongodb://db/vidly
     volumes:
       - ./backend:/app
     command: ./docker-entrypoint.sh
